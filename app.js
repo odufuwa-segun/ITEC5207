@@ -3,6 +3,8 @@ var app = express();
 var db = require("./database.js");
 var initialize_db = require("./initialize_db.js");
 
+var port = process.env.PORT || 3000;
+
 
 // Root endpoint
 app.get("/", (req, res, next) => {
@@ -141,6 +143,6 @@ app.get("/api/category/:category/publications", (req, res, next) => {
 app.use(function(req, res){
     res.status(404);
 });
-app.listen(3000, () => {
- console.log("Server running on port 3000");
+app.listen(port, () => {
+ console.log("Server running on port " + port);
 });
